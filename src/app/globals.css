@@ -1,0 +1,10 @@
+@import '../styles/tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { --background:#11100e; --foreground:#f2eee7; --font-inter: Arial, sans-serif; --font-cormorant: Georgia, serif; }
+* { box-sizing:border-box; }
+html { background:var(--background); }
+body { margin:0; background:var(--background); color:var(--foreground); font-family:var(--font-inter),Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+::selection { background:#b69a68; color:#11100e; }
+a { color:inherit; text-decoration:none; }
