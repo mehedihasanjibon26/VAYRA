@@ -1,0 +1,253 @@
+
+.intro {
+  position: relative;
+  height: 245svh;
+  background: #d98da9;
+  color: #321b28;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  perspective: 1800px;
+  background: #d98da9;
+}
+
+.meta {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.topMeta,
+.bottomMeta {
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: clamp(20px, 4vw, 65px);
+  font: 700 clamp(9px, 0.7vw, 12px)/1.4 Arial, sans-serif;
+  letter-spacing: 0.16em;
+}
+
+.topMeta {
+  top: clamp(25px, 4vh, 52px);
+}
+
+.bottomMeta {
+  bottom: clamp(25px, 4vh, 52px);
+}
+
+.book {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 7;
+  width: min(70vw, 670px);
+  aspect-ratio: 1.45 / 1;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.bookShadow {
+  position: absolute;
+  left: 5%;
+  right: 3%;
+  bottom: -8%;
+  height: 18%;
+  border-radius: 50%;
+  background: rgba(65, 25, 44, 0.32);
+  filter: blur(23px);
+  transform: translateZ(-30px);
+}
+
+.bookPage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 7px solid #f1dedb;
+  border-radius: 3px 9px 9px 3px;
+  background: transparent;
+  box-shadow:
+    9px 12px 0 -5px #bd8298,
+    15px 19px 30px rgba(64, 24, 44, 0.2);
+  pointer-events: none;
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px 9px 9px 3px;
+  border: 1px solid rgba(255, 226, 234, 0.5);
+  background:
+    radial-gradient(
+      circle at 25% 17%,
+      rgba(255, 238, 239, 0.44),
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      #f1b6c9,
+      #d783a3 55%,
+      #b35a7f
+    );
+  box-shadow:
+    inset 0 0 0 11px rgba(105, 38, 65, 0.09),
+    inset 0 0 0 12px rgba(255, 224, 233, 0.23),
+    8px 12px 14px rgba(79, 28, 50, 0.14);
+  transform-origin: 0% 50%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+.coverContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(11px, 1.5vw, 22px);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.rule {
+  width: 24%;
+  height: 1px;
+  background: rgba(70, 23, 45, 0.5);
+}
+
+.coverKicker,
+.coverEdition {
+  font: 700 clamp(8px, 0.75vw, 11px)/1.2 Arial, sans-serif;
+  letter-spacing: 0.27em;
+}
+
+.coverBrand {
+  font: 400 clamp(65px, 10vw, 155px)/1 Georgia, serif;
+  letter-spacing: -0.05em;
+}
+
+.spine {
+  position: absolute;
+  z-index: 10;
+  top: -1%;
+  bottom: -1%;
+  left: 0;
+  width: 15px;
+  background: linear-gradient(
+    90deg,
+    #71334e,
+    #e8aac1,
+    #9f4c70
+  );
+  transform: translateZ(12px);
+}
+
+.heroPortal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  transform-origin: top left;
+  will-change: transform;
+}
+
+.heroPortal > section {
+  width: 100%;
+  height: 100%;
+}
+
+.scrollHint {
+  position: absolute;
+  z-index: 15;
+  bottom: 9%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: 700 clamp(9px, 0.75vw, 12px)/1 Arial, sans-serif;
+  letter-spacing: 0.15em;
+  pointer-events: none;
+}
+
+.scrollHint span {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@media (max-width: 700px) {
+  .intro {
+    height: 215svh;
+  }
+
+  .book {
+    width: 83vw;
+  }
+
+  .bookPage {
+    border-width: 4px;
+  }
+
+  .coverBrand {
+    font-size: 12vw;
+  }
+
+  .coverKicker,
+  .coverEdition {
+    font-size: 7px;
+    letter-spacing: 0.15em;
+  }
+
+  .spine {
+    width: 10px;
+  }
+
+  .topMeta,
+  .bottomMeta {
+    padding-inline: 20px;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .scrollHint {
+    bottom: 13%;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    height: 100svh;
+  }
+
+  .book,
+  .meta,
+  .scrollHint {
+    display: none;
+  }
+
+  .heroPortal {
+    transform: none;
+    will-change: auto;
+  }
+}

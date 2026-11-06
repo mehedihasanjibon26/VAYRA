@@ -1,0 +1,49 @@
+
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #09080b;
+  isolation: isolate;
+}
+
+.chapterOverlay {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  margin-top: -18svh;
+  background: transparent;
+  isolation: isolate;
+}
+
+/* The next chapter looks like a cinematic sheet
+   rising over the previous hero. */
+
+.chapterOverlay :global(#collection) {
+  position: relative;
+  border-radius: 30px 30px 0 0;
+  box-shadow:
+    0 -20px 65px rgba(0, 0, 0, 0.2),
+    0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.chapterOverlay :global(#collection > div:first-child) {
+  border-radius: 30px 30px 0 0;
+}
+
+@media (max-width: 768px) {
+  .chapterOverlay {
+    margin-top: -14svh;
+  }
+
+  .chapterOverlay :global(#collection),
+  .chapterOverlay :global(#collection > div:first-child) {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapterOverlay {
+    margin-top: 0;
+  }
+}

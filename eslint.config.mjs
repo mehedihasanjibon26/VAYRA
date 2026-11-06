@@ -1,7 +1,13 @@
 import tsParser from '@typescript-eslint/parser';
+import nextConfig from 'eslint-config-next/core-web-vitals';
 
 export default [
+  ...nextConfig,
   { ignores: ['.next/**', 'node_modules/**'] },
+  {
+    files: ['eslint.config.mjs', 'postcss.config.mjs'],
+    rules: { 'import/no-anonymous-default-export': 'off' },
+  },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: { parser: tsParser, parserOptions: { ecmaFeatures: { jsx: true } } },
